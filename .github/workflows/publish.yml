@@ -20,6 +20,7 @@ jobs:
     - uses: actions/setup-java@v4
       with:
         distribution: ${{ matrix.java_dist }}
+        java-version: 11
     - name: Check
       run: |
         javac OSArchTest.java
