@@ -25,6 +25,5 @@ jobs:
         java-version: 11
     - name: Check
       run: |
-        echo "## ${{ matrix.os }}/${{ matrix.java_dist }}" >> $GITHUB_STEP_SUMMARY
-        javac OSArchTest.java >> $GITHUB_STEP_SUMMARY
         java OSArchTest >> $GITHUB_STEP_SUMMARY
+      shell: bash
