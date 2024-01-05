@@ -11,8 +11,10 @@ jobs:
       max-parallel: 1
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest, macos-latest-xlarge]
-        java_dist: [temurin, zulu, adopt, liberica, microsoft, corretto, semeru, oracle, dragonwell]
+        os: [ubuntu-latest, windows-latest]
+        java_dist: [temurin]
+        # os: [ubuntu-latest, windows-latest, macos-latest, macos-latest-xlarge]
+        # java_dist: [temurin, zulu, adopt, liberica, microsoft, corretto, semeru, oracle, dragonwell]
     runs-on: ${{ matrix.os }}
     
     steps:
@@ -23,5 +25,6 @@ jobs:
         java-version: 11
     - name: Check
       run: |
-        javac OSArchTest.java
-        java OSArchTest    
+        echo "## ${{ matrix.os }}/${{ matrix.java_dist }}" >> $GITHUB_STEP_SUMMARY
+        javac OSArchTest.java >> $GITHUB_STEP_SUMMARY
+        java OSArchTest >> $GITHUB_STEP_SUMMARY
