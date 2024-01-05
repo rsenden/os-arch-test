@@ -8,7 +8,6 @@ name: Publish tool definitions
 jobs:
   test:
     strategy:
-      max-parallel: 1
       fail-fast: false
       matrix:
         #os: [ubuntu-latest, windows-latest]
