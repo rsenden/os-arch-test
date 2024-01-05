@@ -25,5 +25,6 @@ jobs:
         java-version: 11
     - name: Check
       run: |
+        javac OSArchTest.java
         java OSArchTest >> $GITHUB_STEP_SUMMARY
       shell: bash
